@@ -1,34 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Church Worship Songs</title>
+<meta name="viewport" content="width=device-width">
+<title>Songs</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body onload="loadSongs()">
 
 <header>
-    <div class="header-container">
-        <img src="logo.png" alt="Church Logo" class="church-logo">
-        <h1>✝️ Church Worship Songs</h1>
-        <p>Praise the Lord</p>
-    </div>
-
-    <div class="hamburger-menu" id="hamburgerMenu">
-        ☰
-        <div class="menu-content" id="menuContent">
-            <button onclick="logout()">🚪 Logout</button>
-            <button onclick="toggleTheme()">🌙 / ☀️ Theme</button>
-        </div>
-    </div>
+<img class="church-logo"
+src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
+<div class="menu">☰
+  <div class="menu-box">
+    <button onclick="toggleTheme()">Theme</button>
+    <button onclick="logout()">Logout</button>
+  </div>
+</div>
 </header>
 
-<main id="songSection">
-    <input type="text" id="searchBox" placeholder="🔍 Search worship song..." onkeyup="searchSongs()" class="search-box">
-    <a id="addBtn" href="javascript:addSong()" class="add-btn" style="display:none;">➕ Add Song</a>
-    <ul id="songList" class="song-list"></ul>
-</main>
+<input id="search" placeholder="Search song" onkeyup="searchSong()">
+<button id="addBtn" onclick="addSong()">+ Add</button>
+
+<ul id="list"></ul>
 
 <script src="script.js"></script>
 </body>
