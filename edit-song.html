@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edit Song</title>
-<link rel="stylesheet" href="style.css">
+  <title>Edit Song</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body onload="loadEditSong()">
-<h2>Edit Song</h2>
+<body onload="load()">
 
-<input id="editTitle">
-<textarea id="editLyrics"></textarea>
-<select id="editCategory">
-<option value="Fast">Fast</option>
-<option value="Slow">Slow</option>
-<option value="Tamil">Tamil</option>
-</select>
+<div class="form-box">
+  <input id="title">
+  <input id="category">
+  <textarea id="lyrics"></textarea>
+  <button onclick="update()">Update</button>
+</div>
 
-<button onclick="updateSong()">Update</button>
-<button onclick="goBack()">Cancel</button>
+<script>
+let i=localStorage.edit;
+let songs=JSON.parse(localStorage.songs);
 
-<script src="script.js"></script>
+function load(){
+  let s=songs[i];
+  title.value=s.title;
+  category.value=s.category;
+  lyrics.value=s.lyrics;
+}
+function update(){
+  songs[i]={title:title.value,category:category.value,lyrics:lyrics.value};
+  localStorage.songs=JSON.stringify(songs);
+  location.href="index.html";
+}
+</script>
 </body>
 </html>
