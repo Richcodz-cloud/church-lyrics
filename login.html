@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<title>Login</title>
-<link rel="stylesheet" href="style.css">
+  <title>Church Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-<img class="church-logo"
-src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
+  <img src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
 </header>
 
 <div class="login-box">
-<input id="pwd" type="password" placeholder="Enter Password">
-<div class="login-buttons">
-<button onclick="memberLogin()">Member</button>
-<button onclick="adminLogin()">Admin</button>
-</div>
+  <input type="password" id="pwd" placeholder="Enter Password">
+
+  <div class="login-actions">
+    <button onclick="member()">Member</button>
+    <button onclick="admin()">Admin</button>
+  </div>
 </div>
 
-<script src="login.js"></script>
+<script>
+function member(){
+  localStorage.setItem("role","member");
+  location.href="index.html";
+}
+function admin(){
+  if(pwd.value==="admin123"){
+    localStorage.setItem("role","admin");
+    location.href="index.html";
+  }else alert("Wrong password");
+}
+</script>
 </body>
 </html>
