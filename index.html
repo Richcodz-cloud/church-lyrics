@@ -7,11 +7,10 @@
 <body onload="init()">
 
 <header>
-  <img src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
   <div class="menu-btn" onclick="toggleMenu()">☰</div>
   <div id="menu" class="menu hidden">
     <div onclick="goHome()">🏠 Home</div>
-    <div onclick="switchLogin()">🔁 Switch Login</div>
+    <div id="switchLogin" onclick="switchLogin()">🔁 Switch Login</div>
     <div onclick="logout()">🚪 Logout</div>
     <hr>
     <div onclick="alert('Future feature')">✨ Additional Feature</div>
@@ -20,7 +19,6 @@
 
 <input id="search" class="search-box" placeholder="🔍 Search song..." onkeyup="searchSongs()">
 
-<!-- TAB BAR -->
 <div class="tab-bar">
   <div class="tab active" onclick="showTab('songs',this)">🎵 Songs</div>
   <div class="tab" onclick="showTab('recent',this)">🕘 Recently</div>
