@@ -1,5 +1,5 @@
 const ADMIN_PASSWORD = "admin123";
-const MEMBER_PASSWORD = "123";
+const MEMBER_PASSWORD = "member123";
 
 function memberLogin(){
     const pwd = document.getElementById("loginPwd").value;
@@ -8,7 +8,6 @@ function memberLogin(){
         window.location.href="index.html";
     } else alert("Wrong password");
 }
-
 
 function adminLogin(){
     const pwd = document.getElementById("loginPwd").value;
