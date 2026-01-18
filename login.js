@@ -1,5 +1,5 @@
 const ADMIN_PASSWORD = "admin123";
-const MEMBER_PASSWORD = "member123";
+const MEMBER_PASSWORD = "123";
 
 function memberLogin(){
     const pwd = document.getElementById("loginPwd").value;
