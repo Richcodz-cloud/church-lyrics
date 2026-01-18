@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lyrics</title>
+<title>Church Worship Songs</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="loadSongs()">
 
-<!-- Projector / Font / Line Controls -->
-<div class="projector-controls">
-<button onclick="toggleFullScreen()">⛶</button>
-<button onclick="decreaseFont()">A−</button>
-<button onclick="increaseFont()">A+</button>
-<button onclick="decreaseLine()">⇩</button>
-<button onclick="increaseLine()">⇧</button>
-<button onclick="startScroll()">▶ Scroll</button>
-<button onclick="stopScroll()">⏹ Stop</button>
+<header>
+<h1>✝️ Church Worship Songs</h1>
+<p>Praise the Lord</p>
+<button onclick="toggleTheme()" class="theme-btn">🌙 / ☀️</button>
+</header>
+
+<div id="loginBox" class="login-box">
+<h3>Login</h3>
+<button onclick="memberLogin()">👥 Enter as Member</button>
+<hr>
+<input type="password" id="adminPwd" placeholder="Admin Password">
+<button onclick="adminLogin()">🔐 Admin Login</button>
 </div>
 
-<!-- Lyrics Display -->
-<div id="lyricsBox" class="lyrics"></div>
+<main id="songSection" style="display:none;">
+<button onclick="logout()">🚪 Logout</button>
 
-<!-- Back Button -->
-<button class="back-btn" onclick="goBack()">⬅ Back</button>
+<!-- Search -->
+<div class="search-container">
+<input type="text" id="searchBox" placeholder="🔍 Search worship song..." onkeyup="searchSongs()" class="search-box">
+</div>
+
+<a id="addBtn" href="add-song.html" class="add-btn" style="display:none;">➕ Add Song</a>
+
+<ul id="songList" class="song-list"></ul>
+
+</main>
 
 <script src="script.js"></script>
 </body>
