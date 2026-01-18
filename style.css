@@ -3,10 +3,10 @@
 
 body{margin:0;background:#f7f9fc}
 header{text-align:center;padding:20px;position:relative}
-header img{height:70px}
 
+/* menu button + dropdown */
 .menu-btn{position:absolute;right:20px;top:25px;font-size:26px;cursor:pointer}
-.menu{position:absolute;right:20px;top:65px;background:white;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);overflow:hidden;z-index:1000;}
+.menu{position:absolute;right:20px;top:65px;background:white;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);overflow:hidden;z-index:1000;transition:0.3s ease-in-out;}
 .menu div{padding:14px 20px;font-weight:600;cursor:pointer;}
 .menu div:hover{background:#3f51b5;color:white}
 .menu hr{margin:0;border:0;border-top:1px solid #ddd}
@@ -23,12 +23,22 @@ header img{height:70px}
 .song-item:hover{background:#3f51b5;color:white}
 
 .admin-actions{margin-top:8px;display:flex;justify-content:center;gap:10px}
-.admin-actions button{padding:6px 10px;font-size:14px;border-radius:6px;background:#ef4444;color:white}
-.admin-actions button:first-child{background:#10b981}
+.admin-actions button{padding:6px 10px;font-size:14px;border-radius:6px;color:white;border:none}
+.admin-actions button:first-child{background:#10b981} /* edit */
+.admin-actions button:last-child{background:#ef4444} /* delete */
 
 .login-box,.form-box,.lyrics{background:white;margin:20px auto;padding:25px;max-width:400px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
 .login-actions{display:flex;gap:10px}
 button{flex:1;padding:12px;border:none;border-radius:10px;background:#3f51b5;color:white;font-weight:600}
+
+.login-box input[type="password"]{
+  width:100%;
+  box-sizing:border-box;
+  padding:12px;
+  font-size:16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
 
 .lyrics-wrapper{padding:20px}
 .lyrics pre{font-size:clamp(18px,4vw,32px);font-weight:700;line-height:1.4}
