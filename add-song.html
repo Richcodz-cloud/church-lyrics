@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Add Song</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <h2>Add Song</h2>
+
 <input id="title" placeholder="Song Title">
 <textarea id="lyrics" placeholder="Enter lyrics"></textarea>
+<select id="category">
+<option value="Fast">Fast</option>
+<option value="Slow">Slow</option>
+<option value="Tamil">Tamil</option>
+</select>
 
 <button onclick="addSong()">Save</button>
 <button onclick="goBack()">Cancel</button>
