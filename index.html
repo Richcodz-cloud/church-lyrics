@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<title>Songs</title>
-<link rel="stylesheet" href="style.css">
+  <title>Church Songs</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body onload="loadSongs()">
+<body onload="init()">
 
 <header>
-<img class="church-logo"
-src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
-
-<div class="menu">☰
-<div class="menu-box">
-<button onclick="toggleTheme()">Theme</button>
-<button onclick="exportSongs()">Backup</button>
-<button onclick="importSongs()">Restore</button>
-<button onclick="location.href='change-password.html'">Change Password</button>
-<button onclick="logout()">Logout</button>
-</div>
-</div>
+  <img src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
 </header>
 
-<input id="search" placeholder="Search song" onkeyup="searchSong()">
-<button id="addBtn" onclick="addSong()">+ Add</button>
+<input id="search" class="search-box" placeholder="🔍 Search song..." onkeyup="searchSongs()">
 
-<h4>Recently Used</h4>
-<ul id="recentList"></ul>
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <div class="tab active" onclick="showTab('songs',this)">🎵 Songs</div>
+  <div class="tab" onclick="showTab('recent',this)">🕘 Recently</div>
+  <div class="tab" onclick="showTab('fav',this)">⭐ Favorites</div>
+</div>
 
-<h4>Favorites ⭐</h4>
-<ul id="favList"></ul>
+<div class="content-area">
+  <div id="songsTab"></div>
+  <div id="recentTab" class="hidden"></div>
+  <div id="favTab" class="hidden"></div>
+</div>
 
-<ul id="list"></ul>
-
-<input type="file" id="fileInput" hidden>
+<a href="add-song.html" id="addBtn" class="floating-btn">➕</a>
 
 <script src="script.js"></script>
 </body>
