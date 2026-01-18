@@ -1,18 +1,16 @@
-const ADMIN_PASSWORD = "admin123";
-const MEMBER_PASSWORD = "member123";
+const ADMIN = "admin123";
+const MEMBER = "member123";
 
 function memberLogin(){
-    const pwd = document.getElementById("loginPwd").value;
-    if(pwd === MEMBER_PASSWORD || pwd === ADMIN_PASSWORD){
-        localStorage.setItem("loginType","member");
-        window.location.href="index.html";
-    } else alert("Wrong password");
+  if(pwd.value === MEMBER || pwd.value === ADMIN){
+    localStorage.setItem("role","member");
+    location.href="index.html";
+  } else alert("Wrong Password");
 }
 
 function adminLogin(){
-    const pwd = document.getElementById("loginPwd").value;
-    if(pwd === ADMIN_PASSWORD){
-        localStorage.setItem("loginType","admin");
-        window.location.href="index.html";
-    } else alert("Wrong password");
+  if(pwd.value === ADMIN){
+    localStorage.setItem("role","admin");
+    location.href="index.html";
+  } else alert("Wrong Password");
 }
