@@ -17,9 +17,9 @@
 if(localStorage.role!=="admin") location.href="index.html";
 
 function save(){
-  let s=JSON.parse(localStorage.songs||"[]");
+  let s = JSON.parse(localStorage.songs || "[]");
   s.push({title:title.value,category:category.value,lyrics:lyrics.value});
-  localStorage.songs=JSON.stringify(s);
+  localStorage.songs = JSON.stringify(s);
   location.href="index.html";
 }
 </script>
