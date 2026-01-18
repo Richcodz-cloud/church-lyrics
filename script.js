@@ -84,7 +84,7 @@ function searchSongs(){
   });
 }
 
-// REMOVE LOGO AND HIDE SWITCH LOGIN FOR MEMBERS
+// REMOVE LOGO & HIDE SWITCH LOGIN FOR MEMBERS
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("header img").forEach(img => img.remove());
   if(localStorage.role === "member"){
