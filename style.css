@@ -10,6 +10,7 @@ header{text-align:center;padding:20px;position:relative}
 .menu div{padding:14px 20px;font-weight:600;cursor:pointer;}
 .menu div:hover{background:#3f51b5;color:white}
 .menu hr{margin:0;border:0;border-top:1px solid #ddd}
+.hidden{display:none;}
 
 .search-box{width:90%;margin:10px auto;display:block;padding:12px;border-radius:25px;border:1px solid #ccc}
 
@@ -24,8 +25,8 @@ header{text-align:center;padding:20px;position:relative}
 
 .admin-actions{margin-top:8px;display:flex;justify-content:center;gap:10px}
 .admin-actions button{padding:6px 10px;font-size:14px;border-radius:6px;color:white;border:none}
-.admin-actions button:first-child{background:#10b981} /* edit */
-.admin-actions button:last-child{background:#ef4444} /* delete */
+.admin-actions button:first-child{background:#10b981} 
+.admin-actions button:last-child{background:#ef4444}
 
 .login-box,.form-box,.lyrics{background:white;margin:20px auto;padding:25px;max-width:400px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
 .login-actions{display:flex;gap:10px}
