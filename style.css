@@ -1,4 +1,3 @@
-/* General */
 body {margin:0; font-family:Arial; background:#f9f9f9; color:#000; padding:20px;}
 .dark {background:#121212; color:#fff;}
 header{text-align:center;}
@@ -9,17 +8,23 @@ input, textarea, select{width:100%;padding:8px;margin:5px 0;}
 .add-btn{display:inline-block;background:green;color:white;padding:8px;text-decoration:none;}
 ul li{list-style:none;margin:5px 0; padding:8px;border-bottom:1px solid #ccc;cursor:pointer;font-weight:bold;}
 body.dark ul li{border-color:#444;}
-ul li:hover{background:#e0e0e0;} body.dark ul li:hover{background:#333;}
+ul li:hover{background:#e0e0e0;} 
+body.dark ul li:hover{background:#333;}
 .search-box{width:300px;padding:10px;font-size:16px;margin:10px 0;}
-.category-filters button{margin:5px 5px 10px 0; padding:6px 12px; background:#007bff; color:white;}
-.category-filters button:hover{background:#0056b3;}
-.projector-controls{position:fixed;top:10px;right:10px;z-index:1000;}
+.projector-controls {
+    position: fixed; top:10px; right:10px; z-index:1000; opacity:0; transition:opacity 0.5s;
+}
+body:hover .projector-controls {opacity:1;}
 .projector-controls button{margin:3px;padding:6px 10px;}
-.lyrics{font-weight:bold; line-height:1.6; white-space:pre-wrap;}
+.lyrics {
+    font-weight:bold; line-height:1.6; white-space:pre-wrap; text-align:center;
+    display:flex; flex-direction:column; justify-content:center; height:90vh; overflow:hidden;
+}
 .dark .lyrics{color:white;}
-.back-btn{position:fixed;bottom:15px;left:15px;}
-.highlight{background:yellow;color:black;padding:2px 4px;border-radius:3px;}
-body.dark .highlight{background:orange;color:black;}
-.scroll-controls{position:fixed;top:60px;right:10px;z-index:1000;}
-.scroll-controls button{padding:6px 10px;margin:3px;cursor:pointer;}
+.lyrics h2 {margin-bottom:20px;}
+.hamburger-menu {position:fixed; top:10px; right:10px; font-size:24px; cursor:pointer; z-index:1001;}
+.menu-content {display:none; position:absolute; top:30px; right:0; background:#444; padding:10px; border-radius:5px;}
+.menu-content button {display:block; width:100%; margin:5px 0; padding:8px; color:#fff; background:#555; border:none; border-radius:5px; cursor:pointer;}
+.menu-content button:hover {background:#666;}
+.hamburger-menu.active .menu-content {display:block;}
 @media (max-width:768px){.search-box{width:95%;} ul li{font-size:18px;} button{width:100%; margin:6px 0;}}
