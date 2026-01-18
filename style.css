@@ -6,7 +6,6 @@ header{text-align:center}
 .login-box{max-width:300px;margin:auto}
 .login-box input{width:100%;padding:10px}
 .login-buttons{display:flex;gap:10px}
-.login-buttons button{flex:1}
 
 #search{width:95%;padding:10px;font-size:16px}
 #addBtn{display:none}
