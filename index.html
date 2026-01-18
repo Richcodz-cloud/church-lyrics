@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Church Worship Songs</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -10,6 +11,7 @@
 <header>
 <h1>✝️ Church Worship Songs</h1>
 <p>Praise the Lord</p>
+<button onclick="toggleTheme()" class="theme-btn">🌙 / ☀️</button>
 </header>
 
 <div id="loginBox" class="login-box">
@@ -21,17 +23,26 @@
 </div>
 
 <main id="songSection" style="display:none;">
-<button onclick="logout()">🚪 Logout</button>
-<button onclick="toggleTheme()">🌙 Dark Mode</button>
 
+<button onclick="logout()">🚪 Logout</button>
+
+<!-- Category Filter -->
+<div class="category-filters">
+<button onclick="filterCategory('All')">All</button>
+<button onclick="filterCategory('Fast')">Fast</button>
+<button onclick="filterCategory('Slow')">Slow</button>
+<button onclick="filterCategory('Tamil')">Tamil</button>
+</div>
+
+<!-- Search -->
 <div class="search-container">
-<input type="text" id="searchBox" placeholder="🔍 Search worship song...">
-<button onclick="searchSongs()">Search</button>
+<input type="text" id="searchBox" placeholder="🔍 Search worship song..." onkeyup="searchSongs()" class="search-box">
 </div>
 
 <a id="addBtn" href="add-song.html" class="add-btn" style="display:none;">➕ Add Song</a>
 
-<ul id="songList"></ul>
+<ul id="songList" class="song-list"></ul>
+
 </main>
 
 <script src="script.js"></script>
