@@ -9,6 +9,7 @@ function memberLogin(){
     } else alert("Wrong password");
 }
 
+
 function adminLogin(){
     const pwd = document.getElementById("loginPwd").value;
     if(pwd === ADMIN_PASSWORD){
