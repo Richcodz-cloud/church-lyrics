@@ -1,33 +1,98 @@
-body{margin:0;padding:10px;font-family:Arial}
-.dark{background:#111;color:#fff}
-header{text-align:center}
-.church-logo{max-width:200px;width:60%}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+*{font-family:Poppins}
 
-.login-box{max-width:300px;margin:auto}
-.login-box input{width:100%;padding:10px}
-.login-buttons{display:flex;gap:10px}
+body{margin:0;background:#f7f9fc}
+header{text-align:center;padding:20px}
+header img{height:70px}
 
-#search{width:95%;padding:10px;font-size:16px}
-#addBtn{display:none}
-
-ul{padding:0}
-li{list-style:none;padding:10px;border-bottom:1px solid #ccc;font-weight:bold}
-.dark li{border-color:#444}
-
-.lyrics{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-font-weight:bold;
-white-space:pre-wrap;
-color:black;
+.search-box{
+  width:90%;
+  margin:10px auto;
+  display:block;
+  padding:12px;
+  border-radius:25px;
+  border:1px solid #ccc;
 }
-.dark .lyrics{color:white}
 
-.menu{position:fixed;top:10px;right:10px;font-size:24px}
-.menu-box{display:none;position:absolute;right:0;background:#444}
-.menu:hover .menu-box{display:block}
-.menu-box button{display:block;width:100%;color:white;background:none;border:none;padding:10px}
+.tab-bar{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin:15px;
+}
+.tab{
+  padding:10px 18px;
+  border-radius:25px;
+  background:#fff;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.15)
+}
+.tab.active,.tab:hover{
+  background:#3f51b5;
+  color:white;
+}
+
+.content-area{max-width:900px;margin:auto}
+
+.category-title{
+  background:linear-gradient(135deg,#3f51b5,#7c3aed);
+  color:white;
+  padding:14px;
+  margin:12px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:600;
+}
+
+.song-item{
+  background:white;
+  margin:10px 12px;
+  padding:14px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,.15)
+}
+
+.hidden{display:none}
+
+.login-box,.form-box,.lyrics{
+  background:white;
+  margin:20px auto;
+  padding:25px;
+  max-width:400px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15)
+}
+
+.login-actions{display:flex;gap:10px}
+button{
+  flex:1;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#3f51b5;
+  color:white;
+  font-weight:600
+}
+
+.lyrics-wrapper{padding:20px}
+.lyrics pre{
+  font-size:clamp(18px,4vw,32px);
+  font-weight:700;
+  line-height:1.4
+}
+
+.floating-btn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#3f51b5;
+  color:white;
+  padding:16px;
+  border-radius:50%;
+  text-decoration:none;
+  font-size:20px
+}
