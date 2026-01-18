@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Edit Song</title>
-    <link rel="stylesheet" href="style.css">
+<title>Edit Song</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header><h1>Edit Song</h1></header>
+<body onload="loadEditSong()">
 
-<main class="form-box">
-    <input id="editTitle">
-    <textarea id="editLyrics"></textarea>
-    <button onclick="updateSong()">Update</button>
-    <br><br>
-    <a href="index.html">⬅ Back</a>
-</main>
+<h2>Edit Song</h2>
+
+<input type="text" id="editTitle">
+<textarea id="editLyrics"></textarea>
+
+<button onclick="updateSong()">Update</button>
+<button onclick="goBack()">Cancel</button>
 
 <script src="script.js"></script>
 </body>
