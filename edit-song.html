@@ -6,28 +6,43 @@
 </head>
 <body onload="load()">
 
+<header>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  <div id="menu" class="menu hidden">
+    <div onclick="goHome()">🏠 Home</div>
+    <div id="switchLogin" onclick="switchLogin()">🔁 Switch Login</div>
+    <div onclick="logout()">🚪 Logout</div>
+    <hr>
+    <div onclick="alert('Future feature')">✨ Additional Feature</div>
+  </div>
+</header>
+
 <div class="form-box">
-  <input id="title">
-  <input id="category">
-  <textarea id="lyrics"></textarea>
+  <input id="title" placeholder="Song Title">
+  <input id="category" placeholder="Category">
+  <textarea id="lyrics" placeholder="Lyrics"></textarea>
   <button onclick="update()">Update</button>
 </div>
 
 <script>
-let i=localStorage.edit;
-let songs=JSON.parse(localStorage.songs);
+let i = localStorage.edit;
+let songs = JSON.parse(localStorage.songs || "[]");
 
 function load(){
-  let s=songs[i];
-  title.value=s.title;
-  category.value=s.category;
-  lyrics.value=s.lyrics;
+  let s = songs[i];
+  if(s){
+    title.value = s.title;
+    category.value = s.category;
+    lyrics.value = s.lyrics;
+  }
 }
+
 function update(){
-  songs[i]={title:title.value,category:category.value,lyrics:lyrics.value};
-  localStorage.songs=JSON.stringify(songs);
+  songs[i] = {title:title.value,category:category.value,lyrics:lyrics.value};
+  localStorage.songs = JSON.stringify(songs);
   location.href="index.html";
 }
 </script>
+<script src="script.js"></script>
 </body>
 </html>
