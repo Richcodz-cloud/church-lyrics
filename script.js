@@ -2,124 +2,120 @@ let songs = [];
 let isAdmin = false;
 const ADMIN_PASSWORD = "admin123";
 
-/* LOAD SONGS */
+/* LOAD */
 function loadSongs() {
 songs = JSON.parse(localStorage.getItem("songs")) || [];
 renderSongs(songs);
 }
 
-/* MEMBER LOGIN */
+/* LOGIN */
 function memberLogin() {
-document.getElementById("loginBox").style.display = "none";
-document.getElementById("songSection").style.display = "block";
-isAdmin = false;
-document.getElementById("addBtn").style.display = "none";
+loginBox.style.display="none";
+songSection.style.display="block";
+isAdmin=false;
+addBtn.style.display="none";
 loadSongs();
 }
 
-/* ADMIN LOGIN */
 function adminLogin() {
-let pwd = document.getElementById("adminPwd").value;
-if (pwd === ADMIN_PASSWORD) {
-document.getElementById("loginBox").style.display = "none";
-document.getElementById("songSection").style.display = "block";
-isAdmin = true;
-document.getElementById("addBtn").style.display = "inline-block";
+if (adminPwd.value === ADMIN_PASSWORD) {
+loginBox.style.display="none";
+songSection.style.display="block";
+isAdmin=true;
+addBtn.style.display="inline-block";
 loadSongs();
-} else {
-alert("Wrong Password");
-}
+} else alert("Wrong password");
 }
 
-/* LOGOUT */
-function logout() {
-location.reload();
-}
+function logout(){ location.reload(); }
 
-/* RENDER SONGS */
+/* RENDER */
 function renderSongs(list) {
-let ul = document.getElementById("songList");
-ul.innerHTML = "";
-
-list.forEach((song, index) => {
-let li = document.createElement("li");
-li.innerHTML = `
-<b>${song.title}</b><br><br>
-<button onclick="viewLyrics(${index})">View</button>
-${isAdmin ? `
-<button onclick="editSong(${index})">Edit</button>
-<button onclick="deleteSong(${index})">Delete</button>
-` : ""}
-`;
-ul.appendChild(li);
+songList.innerHTML="";
+list.forEach((s,i)=>{
+songList.innerHTML+=`
+<li><b>${s.title}</b><br>
+<button onclick="viewLyrics(${i})">View</button>
+${isAdmin?`<button onclick="editSong(${i})">Edit</button>
+<button onclick="deleteSong(${i})">Delete</button>`:""}
+</li>`;
 });
 }
 
 /* SEARCH */
 function searchSongs() {
-let text = document.getElementById("searchBox").value.toLowerCase();
-let filtered = songs.filter(s => s.title.toLowerCase().includes(text));
-renderSongs(filtered);
+let t=searchBox.value.toLowerCase();
+renderSongs(songs.filter(s=>s.title.toLowerCase().includes(t)));
 }
 
-/* VIEW */
-function viewLyrics(index) {
-localStorage.setItem("viewSong", JSON.stringify(songs[index]));
-window.location = "lyrics.html";
+/* SONG ACTIONS */
+function viewLyrics(i){
+localStorage.setItem("viewSong",JSON.stringify(songs[i]));
+location="lyrics.html";
 }
 
-/* ADD SONG */
-function addSong() {
-let title = document.getElementById("title").value;
-let lyrics = document.getElementById("lyrics").value;
-
-songs.push({ title, lyrics });
-localStorage.setItem("songs", JSON.stringify(songs));
+function addSong(){
+songs.push({title:title.value,lyrics:lyrics.value});
+localStorage.setItem("songs",JSON.stringify(songs));
 goBack();
 }
 
-/* DELETE */
-function deleteSong(index) {
-if (confirm("Delete song?")) {
-songs.splice(index, 1);
-localStorage.setItem("songs", JSON.stringify(songs));
+function deleteSong(i){
+if(confirm("Delete?")){
+songs.splice(i,1);
+localStorage.setItem("songs",JSON.stringify(songs));
 loadSongs();
 }
 }
 
-/* EDIT */
-function editSong(index) {
-localStorage.setItem("editIndex", index);
-window.location = "edit-song.html";
+function editSong(i){
+localStorage.setItem("editIndex",i);
+location="edit-song.html";
 }
 
-function loadEditSong() {
-let index = localStorage.getItem("editIndex");
-songs = JSON.parse(localStorage.getItem("songs")) || [];
-document.getElementById("editTitle").value = songs[index].title;
-document.getElementById("editLyrics").value = songs[index].lyrics;
+function loadEditSong(){
+let i=localStorage.getItem("editIndex");
+songs=JSON.parse(localStorage.getItem("songs"))||[];
+editTitle.value=songs[i].title;
+editLyrics.value=songs[i].lyrics;
 }
 
-function updateSong() {
-let index = localStorage.getItem("editIndex");
-songs[index].title = document.getElementById("editTitle").value;
-songs[index].lyrics = document.getElementById("editLyrics").value;
-localStorage.setItem("songs", JSON.stringify(songs));
+function updateSong(){
+let i=localStorage.getItem("editIndex");
+songs[i]={title:editTitle.value,lyrics:editLyrics.value};
+localStorage.setItem("songs",JSON.stringify(songs));
 goBack();
 }
 
-/* LYRICS PAGE */
-let song = JSON.parse(localStorage.getItem("viewSong"));
-if (song && document.getElementById("lyricsBox")) {
-document.getElementById("lyricsBox").innerHTML =
-`<h2>${song.title}</h2><pre>${song.lyrics}</pre>`;
+/* LYRICS DISPLAY */
+let song=JSON.parse(localStorage.getItem("viewSong"));
+if(song && lyricsBox){
+lyricsBox.innerHTML=`<h2>${song.title}</h2>
+<pre class="lyrics-text">${song.lyrics}</pre>`;
+applyText();
 }
 
 /* THEME */
-function toggleTheme() {
-document.body.classList.toggle("dark");
+function toggleTheme(){ document.body.classList.toggle("dark"); }
+
+/* PROJECTOR CONTROLS */
+let fontSize=parseInt(localStorage.getItem("fontSize"))||26;
+let lineHeight=parseFloat(localStorage.getItem("lineHeight"))||1.6;
+
+function applyText(){
+let l=document.querySelector(".lyrics-text");
+if(l){ l.style.fontSize=fontSize+"px"; l.style.lineHeight=lineHeight; }
 }
 
-function goBack() {
-window.location = "index.html";
+function increaseFont(){ fontSize+=2; localStorage.setItem("fontSize",fontSize); applyText(); }
+function decreaseFont(){ if(fontSize>14){ fontSize-=2; applyText(); } }
+
+function increaseLine(){ lineHeight+=0.2; localStorage.setItem("lineHeight",lineHeight); applyText(); }
+function decreaseLine(){ if(lineHeight>1.2){ lineHeight-=0.2; applyText(); } }
+
+function toggleFullScreen(){
+document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
 }
+
+function goBack(){ location="index.html"; }
+
