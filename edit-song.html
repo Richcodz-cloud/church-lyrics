@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edit Song</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body onload="loadEditSong()">
-
 <h2>Edit Song</h2>
+
 <input id="editTitle">
 <textarea id="editLyrics"></textarea>
+<select id="editCategory">
+<option value="Fast">Fast</option>
+<option value="Slow">Slow</option>
+<option value="Tamil">Tamil</option>
+</select>
 
 <button onclick="updateSong()">Update</button>
 <button onclick="goBack()">Cancel</button>
