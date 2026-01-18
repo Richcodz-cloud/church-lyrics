@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width">
-<title>Lyrics</title>
-<link rel="stylesheet" href="style.css">
+  <title>Lyrics</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body onload="loadLyrics()">
 
 <header>
-<img class="church-logo"
-src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
-
-<div class="menu">☰
-<div class="menu-box">
-<button onclick="toggleTheme()">Theme</button>
-<button onclick="logout()">Logout</button>
-</div>
-</div>
+  <img src="https://richcodz-cloud.github.io/church-lyrics/Arise%20&%20Shine%20Logo%20.png">
 </header>
 
-<input id="lyricSearch" placeholder="Search in lyrics" onkeyup="searchLyrics()">
-
-<div id="lyrics" class="lyrics"></div>
+<div class="lyrics-wrapper">
+  <div class="lyrics" id="lyrics"></div>
+</div>
 
 <script src="script.js"></script>
 </body>
