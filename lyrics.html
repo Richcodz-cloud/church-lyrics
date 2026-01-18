@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lyrics</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Projector / Font / Line Controls -->
 <div class="projector-controls">
 <button onclick="toggleFullScreen()">⛶</button>
 <button onclick="decreaseFont()">A−</button>
 <button onclick="increaseFont()">A+</button>
 <button onclick="decreaseLine()">⇩</button>
 <button onclick="increaseLine()">⇧</button>
+<button onclick="startScroll()">▶ Scroll</button>
+<button onclick="stopScroll()">⏹ Stop</button>
 </div>
 
-<div id="lyricsBox"></div>
+<!-- Lyrics Display -->
+<div id="lyricsBox" class="lyrics"></div>
 
+<!-- Back Button -->
 <button class="back-btn" onclick="goBack()">⬅ Back</button>
 
 <script src="script.js"></script>
