@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Church Lyrics</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Church Worship Songs</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body onload="loadSongs()">
 
-<h2>🎵 Church Song Lyrics</h2>
+<header>
+<h1>✝️ Church Worship Songs</h1>
+<p>Praise the Lord</p>
+</header>
 
-<!-- SEARCH (Members Side) -->
-<input type="text" id="searchInput" placeholder="Search song..." onkeyup="searchSongs()">
+<div id="loginBox" class="login-box">
+<h3>Login</h3>
+<button onclick="memberLogin()">👥 Enter as Member</button>
+<hr>
+<input type="password" id="adminPwd" placeholder="Admin Password">
+<button onclick="adminLogin()">🔐 Admin Login</button>
+</div>
+
+<main id="songSection" style="display:none;">
+<button onclick="logout()">🚪 Logout</button>
+<button onclick="toggleTheme()">🌙 Dark Mode</button>
+
+<div class="search-container">
+<input type="text" id="searchBox" placeholder="🔍 Search worship song...">
+<button onclick="searchSongs()">Search</button>
+</div>
+
+<a id="addBtn" href="add-song.html" class="add-btn" style="display:none;">➕ Add Song</a>
 
 <ul id="songList"></ul>
-
-<br>
-
-<!-- ADMIN BUTTON -->
-<button onclick="adminLogin()">Admin Login</button>
+</main>
 
 <script src="script.js"></script>
 </body>
