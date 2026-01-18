@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Add Song</title>
-    <link rel="stylesheet" href="style.css">
+<title>Add Song</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><h1>Add Worship Song</h1></header>
 
-<main class="form-box">
-    <input id="title" placeholder="Song Name">
-    <textarea id="lyrics" placeholder="Song Lyrics"></textarea>
-    <button onclick="addSong()">Save</button>
-    <br><br>
-    <a href="index.html">⬅ Back</a>
-</main>
+<h2>Add New Song</h2>
+
+<input type="text" id="title" placeholder="Song Name">
+<textarea id="lyrics" placeholder="Enter Lyrics"></textarea>
+
+<button onclick="addSong()">Save</button>
+<button onclick="goBack()">Cancel</button>
 
 <script src="script.js"></script>
 </body>
