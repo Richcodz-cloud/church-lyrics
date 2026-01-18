@@ -6,21 +6,23 @@
 <title>Lyrics</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="loadLyrics()">
 
-<!-- Hamburger Menu -->
-<div class="hamburger-menu" id="hamburgerMenu">
-    ☰
-    <div class="menu-content" id="menuContent">
-        <button onclick="logout()">🚪 Logout</button>
-        <button onclick="toggleTheme()">🌙 / ☀️ Theme</button>
+<header>
+    <div class="header-container">
+        <img src="logo.png" alt="Church Logo" class="church-logo">
+        <h1>✝️ Church Worship Songs</h1>
+        <p>Praise the Lord</p>
     </div>
-</div>
 
-<!-- Projector Controls -->
-<div class="projector-controls" id="projectorControls">
-    <button onclick="toggleFullScreen()">⛶ Fullscreen</button>
-</div>
+    <div class="hamburger-menu" id="hamburgerMenu">
+        ☰
+        <div class="menu-content" id="menuContent">
+            <button onclick="logout()">🚪 Logout</button>
+            <button onclick="toggleTheme()">🌙 / ☀️ Theme</button>
+        </div>
+    </div>
+</header>
 
 <div id="lyricsBox" class="lyrics"></div>
 
